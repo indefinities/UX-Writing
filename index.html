@@ -1,0 +1,644 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment 2 Final</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c459e690-972a-4c6b-824c-bde8dff54866" class="page sans"><header><h1 class="page-title">Assignment 2 Final</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><td><time>@Jul 20, 2020 11:31 AM</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><h1 id="20a7ca85-b0d4-4c4a-bdd3-d0f0a96b3197" class="">A Beginner&#x27;s Guide to User Experience Writing</h1><p id="64b325a8-31e2-43fb-a22c-248cede3eea7" class="">
+</p><h3 id="72fa8bf4-04b9-4b0c-b077-08fc0cc41639" class="">Introduction</h3><p id="30a1e44d-ac9f-43fa-8d46-7acf5d0ad798" class="">Today, there are constantly new topics appearing within the technology industry, especially within the user experience field. As the field is rapidly changing, it can be difficult to keep up with all the new developments. In order to adjust to the current trends, a useful technique is to use a pen and paper to visualize what is happening. Not only will noting objects and concepts on paper will be beneficial for yourself, it will also be useful for communicating your ideas to others.</p><p id="043ab88c-55ea-4407-bdd1-634e76837329" class="">
+</p><figure id="a41090d6-3d51-4694-a4f1-043e53e264f1"><div class="source"><a href="https://cdn.dribbble.com/users/563897/screenshots/8549477/media/f99990df8d5c5bca6ee1ab0e3975c735.mp4">https://cdn.dribbble.com/users/563897/screenshots/8549477/media/f99990df8d5c5bca6ee1ab0e3975c735.mp4</a></div><figcaption><a href="https://dribbble.com/shots/8549477-Mobile-Flowchart">Mobile Flowchart</a> by Den Klenkov</figcaption></figure><p id="d63ae4c4-a560-4372-8e69-28ca709c78d7" class="">
+</p><p id="93868045-127f-4137-b7c0-306c2043a822" class="">As a designer and developer, I believe in creating diagrams in order to fully understand the problem at hand. For example, if a developer is explaining their implementation of a user interface to a designer, then presenting a diagram of their code implementation will help them better communicate implementation choices than to point at certain parts of the code and explain the functionality.</p><p id="0cae40a4-ce1a-4f79-a62e-13b26ce9b0ef" class="">
+</p><figure id="f40ca4df-832d-4f28-889c-a029927b1736" class="image"><a href="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled.png"><img style="width:480px" src="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled.png"/></a><figcaption><a href="https://uxdesign.cc/what-else-do-ux-writers-do-besides-write-47873ddeaa38">What do UX writers do besides write?</a> by Clarizza Fernandez
+The above image provides an example of creating a diagram to visual communicate designs and code implementations for user experiences.</figcaption></figure><p id="fa551f69-d3a3-44b6-87e3-e918d06a4385" class="">
+</p><h3 id="5cc144b7-dd1b-4863-a24a-bf7a02add194" class="">Background</h3><p id="24defb98-827d-439d-9833-68178194dd2b" class="">What is a &quot;User Interface (UI) Component&quot;?</p><p id="49947370-8778-4fa4-adf7-0a00f29837fe" class="">User Interface (UI) Components are typically the elements of the user interface (e.a. webpage, application, etc.) that a user interacts with to achieve a certain goal. </p><p id="ceaffb39-32fa-4c97-8354-1d298e7026ea" class="">
+</p><ul id="dd99f900-f023-4b84-b35c-b6f05fd1b9ad" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">← A <strong>checkbox</strong> is an example of a user interface component</span></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="97be6a5c-951d-41c4-9389-52a1a0714b46"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">This <strong>callout</strong> can also be an example of a user interface component</div></figure><div id="dbea911e-7f06-4826-889a-b609e29a597c" class="collection-content"><h4 class="collection-title">Gallery</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Tags</th></tr></thead><tbody><tr id="bb5d3d96-43a6-46d2-a53f-5d00c0e59b01"><td class="cell-title"><a href="https://www.notion.so/Card-1-click-me-bb5d3d9643a646d2a53f5d00c0e59b01">Card 1 (click me!)</a></td><td class="cell-;q&quot;&quot;"><time>@Jul 20, 2020 4:15 PM</time></td><td class="cell-cm&quot;M"></td></tr><tr id="1bc96595-2be3-4354-9544-608f9315f6b0"><td class="cell-title"><a href="https://www.notion.so/Card-2-1bc965952be343549544608f9315f6b0">Card 2</a></td><td class="cell-;q&quot;&quot;"><time>@Jul 20, 2020 4:15 PM</time></td><td class="cell-cm&quot;M"></td></tr><tr id="e0b304a3-1844-49c4-ae5b-3653adae44b8"><td class="cell-title"><a href="https://www.notion.so/Card-3-e0b304a3184449c4ae5b3653adae44b8">Card 3</a></td><td class="cell-;q&quot;&quot;"><time>@Jul 20, 2020 4:15 PM</time></td><td class="cell-cm&quot;M"></td></tr></tbody></table></div><p id="f3db8dc5-2176-4a2f-af9c-d452c70fa738" class="">
+</p><p id="f138dc89-8cfa-4f9b-89e1-ccd45ca61fec" class="">As seen from the (above) gallery example, user interface components can be nested within one another. Therefore, it may be difficult to communicate the hierarchy of the components solely based on their final product. Understanding the component&#x27;s functionality and implementation is equally important for user experience developers and designers. </p><p id="aa26fc94-a813-4b95-aff9-dfce85d40e27" class="">
+</p><p id="728c537e-82fe-4c64-a8af-876bdf464199" class="">(For Developers)</p><p id="ff45cdb9-6ea3-46b9-80d3-8929393f6f13" class="">As <a href="https://www.javascript.com/">Javascript</a> is the programming language that connects front-end web development and user experience design, I recommend referencing the <a href="https://vuejs.org/">Vue</a> framework when reviewing how to create diagrams for user experience components. Vue is a component based Javascript framework where different user interface components can be implemented into their own Vue component file, then those Vue components can be nested into another component which may represent a webpage. The concept of Vue as a framework is relevant to grouping code elements into blocks of a diagram.</p><p id="5558b56c-9f4f-41ff-ae42-c0b03d6a064f" class="">
+</p><h3 id="2414d56b-8d8f-43f3-9baa-f142f8b65d3e" class="">Walkthrough</h3><p id="c7dc6044-16d2-4245-9a41-c8fb9351928a" class="">Within a webpage, there are various user interface components that the user interacts with. Let&#x27;s say we are creating a checkout scenario on an e-commerce website. The three main steps the customer will undergo in this scenario include:</p><p id="e809a7a8-cc31-476d-99e6-719ead3fbf7c" class="">
+</p><ol id="3bd31654-abc7-4c85-b739-237103250ccb" class="numbered-list" start="1"><li>Selecting the payment method</li></ol><ol id="9143c63e-3c06-4630-8a80-7b4fc26fa84e" class="numbered-list" start="2"><li>Filling out a form for payment method information</li></ol><ol id="17432749-4c2d-4611-9d27-be3eb1a1484e" class="numbered-list" start="3"><li>Pressing a button to save information (for future use).</li></ol><p id="4f638214-15a3-46a7-b1d7-6da94b467004" class="">
+</p><p id="9616e29f-b692-4e52-8257-76770bc15c14" class="">First, selecting a payment method includes selecting a radio button with a label beside it. The radio button should be implemented as its own UI component, as the radio buttons for the different payment methods do not refer to each other. </p><p id="40e30296-27b7-4149-aaaf-2041504581f4" class="">
+</p><figure id="420fceba-d5b1-472b-96b8-f0f77cfa1e93" class="image"><a href="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%201.png"><img style="width:432px" src="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%201.png"/></a><figcaption>Radio Buttons by Jason Teunissen</figcaption></figure><p id="87df251e-a63d-4673-82b0-34584ac7c1a3" class="">
+</p><p id="08e5602e-d5f9-4ba1-903c-3832f244ada6" class="">Following the user selecting the chosen payment method, a form appears. A form may sound like a straightforward component, but it is actually a component made from multiple field components. These &quot;field&quot; components can include, but are not limited to, checkboxes, text inputs, radio boxes, etc. When creating a diagram to represent this information, it is important to group the form field as its own implementation, then reuse the label for that component multiple times to create the hierarchy of the form component.</p><p id="11c25f79-b6fe-4b92-9573-874627f2e3a9" class="">
+</p><figure id="71282cfd-602e-42f9-b7f9-a1143653512e"><div class="source"><a href="https://cdn.dribbble.com/users/110613/videos/24757/dribbble-shot.mp4">https://cdn.dribbble.com/users/110613/videos/24757/dribbble-shot.mp4</a></div></figure><p id="9b290e4e-39df-46dc-906f-9d02d5d9eda5" class="">
+</p><p id="a1f73fb1-f556-4432-8ac5-8f646f6d770b" class="">
+</p><figure id="74f9af4a-1263-4285-9c86-6284899d1a63" class="image"><a href="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%202.png"><img style="width:528px" src="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%202.png"/></a><figcaption>A diagram of an address form. Each part of the diagram has an explanation of the functionality, data types, etc.</figcaption></figure><p id="f5119757-b0a1-4956-a5ac-0b49573013d5" class="">
+</p><figure id="d4240d72-ddac-40f5-94ba-612200f4e5fe" class="image"><a href="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%203.png"><img style="width:528px" src="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%203.png"/></a><figcaption>Some notes I took before creating my diagram. For Vue JS, there are props that a component takes in to display certain information or react a certain way. </figcaption></figure><p id="889b2583-0285-469e-8a42-d22a7d66d59e" class="">
+</p><hr id="c6d685f2-ef5c-4d08-9a0a-853b62cb2964"/><p id="b4212b2e-333f-4c57-bf58-3ba190965a02" class="">In this case, it is important to understand the implementation of the field within the form, as there are multiple states the field can return as a result of user input:</p><ol id="f8d49a69-d0e6-4471-b75a-5b874756fdba" class="numbered-list" start="1"><li>The information within the field is correct, and the user can continue to the next step</li></ol><ol id="83ad405c-8784-46db-be3b-ec2ac4f9b96c" class="numbered-list" start="2"><li>The field is filled out incorrectly. The user must re-enter information that pertains to the respective field.</li></ol><figure id="4bfba78a-dfc4-42f8-bd80-6282c5593145" class="image"><a href="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%204.png"><img style="width:432px" src="Assignment%202%20Final%20f40ca4df832d4f28889ca029927b1736/Untitled%204.png"/></a><figcaption><a href="https://search.muz.li/M2UxYmY3N2Jh">Selection Radio Buttons Material UI </a>from <a href="http://uplabs.com/">uplabs.com</a></figcaption></figure><p id="7ece211d-0c04-4883-b12b-374401ccb65e" class="">Considering these individual implementation is important in order to create the component as a whole, as some components within the whole component will rely on one another for new information. </p><h3 id="a3af67a0-0b8a-4a5e-9b0c-35b34c02baf5" class="">Conclusion</h3><p id="c8b6c266-7cc6-4021-bbc0-2631fcaf39de" class="">Understanding the groupings of components and monitoring multiple UI components is useful within software engineering and UX design today. For example, when engineering individual components for the front-end of a website, programmers typically should create a single component and implement that component within multiple areas. However, there is the possibility of miscommunication between programmers, causing a component with similar, if not same, code will be duplicated. Therefore, in this case it&#x27;s good to document a component&#x27;s implementation as a diagram and implement that document as a resource. When designing a website interface, it&#x27;s good to use the &quot;Component&quot; grouping within the program being used (Sketch, Figma, etc.), so the component can be used in multiple places instead of creating the same design repeatedly. Communication and documenting save time and are crucial for product creation.</p><p id="457441ad-e491-40a8-9748-c3afa430056e" class="">
+</p><p id="5fb93aab-4e00-4275-aca9-bf38bfa9f698" class="">Using this technique significantly guided me during my time at Chewy and has shaped me to the developer and designer I am today. With the tactic of noting implementation of work using pen and paper, visual learners will have the potential to learn anything out of their comfort zone.</p><p id="31e3bae6-cf30-4cd9-a0ff-5042e69f5f6d" class="">
+</p><p id="c8542632-f6ac-41fa-8c40-47a968be6df4" class="">All references of this document are linked within the text.</p><p id="7b9c8b13-6338-4416-8571-6e510369e671" class="">
+</p><h3 id="5514717a-f546-487d-89ba-43404697699f" class="">Resources (Further Reading)</h3><figure id="158e64df-4419-4e6a-9799-c658302f5da3"><a href="https://www.checklist.design/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Checklist Design - best UI elements for the best UX practices</div><div class="bookmark-description">Checklist Design is a collection of best UI and UX you need to provide a complete, honest and rewarding experience for your users.</div></div><div class="bookmark-href"><img src="https://uploads-ssl.webflow.com/5ba4b3c973b5d218459f7e6f/5c92bd3b61394f795f553fde_checklist-favicon.png" class="icon bookmark-icon"/>https://www.checklist.design/</div></div><img src="https://uploads-ssl.webflow.com/5ba4b3c973b5d218459f7e6f/5ebf3cbb1752270d8231ffd9_checklist-thumbnail-default.png" class="bookmark-image"/></a></figure><figure id="31074186-f757-4b68-bc3c-d84d3eb138a3"><a href="https://uxdesign.cc/how-to-build-a-better-product-with-ux-writing-926d78209ce8" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to build a better product with UX writing</div><div class="bookmark-description">The more I read about interfaces and copy, the more I see people claiming that interfaces must be user-oriented, and it&#x27;s time we changed our approach to designing digital products. Both statements are correct; however, only a few have a clue what makes an interface user-oriented or how we should improve them.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*mDhF9X4VO0rCrJvWFatyxg.png" class="icon bookmark-icon"/>https://uxdesign.cc/how-to-build-a-better-product-with-ux-writing-926d78209ce8</div></div><img src="https://miro.medium.com/max/1200/0*_tOC2lfAqTVbOtks." class="bookmark-image"/></a></figure><figure id="39bbe2f5-8619-4faa-9213-49d812b556d8"><a href="https://uxdesign.cc/netflix-discovery-experience-a-ux-ui-case-study-7bcd12f74db1" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Netflix discovery experience - a UX/UI case study</div><div class="bookmark-description">DISCLAIMER: This project was done by me and my classmates for a school project and is not made, owned, or affiliated directly to Accedo. What if Netflix knew what you wanted to watch, before you? Introducing Netflix Discovery - A new discovery experience This UX study will mainly focus on how to make the user experience more pleasant for the everyday user.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*mDhF9X4VO0rCrJvWFatyxg.png" class="icon bookmark-icon"/>https://uxdesign.cc/netflix-discovery-experience-a-ux-ui-case-study-7bcd12f74db1</div></div><img src="https://miro.medium.com/max/1200/1*XpzcqEiud2PTVcLAOlD30w.png" class="bookmark-image"/></a></figure></div></article></body></html>
